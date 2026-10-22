@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shaik Ubaidullah — Direction B: Technical Atelier</title>
+  <meta name="description" content="Design Prototype Direction B for Shaik Ubaidullah's personal portfolio. Technical Atelier aesthetic.">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS — DIRECTION B: TECHNICAL ATELIER
+       Deep Carbon Slate + Steel Grey + Electric Emerald & Ice Cyan
+       ========================================================================== */
+    :root {
+      --bg-base: #0A0D0E;
+      --bg-surface: #111618;
+      --bg-elevated: #161D20;
+      --bg-overlay: rgba(10, 13, 14, 0.85);
+
+      --border-hairline: rgba(255, 255, 255, 0.08);
+      --border-subtle: rgba(255, 255, 255, 0.14);
+      --border-focus: #32E0C4;
+
+      --text-display: #F3F5F7;
+      --text-body: #96A3A8;
+      --text-muted: #58676D;
+
+      --accent-emerald: #00E676;
+      --accent-emerald-soft: rgba(0, 230, 118, 0.1);
+      --accent-cyan: #32E0C4;
+      --accent-cyan-soft: rgba(50, 224, 196, 0.1);
+      --accent-amber: #FFB300;
+
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', SFMono-Regular, monospace;
+
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 16px;
+      --space-4: 24px;
+      --space-5: 32px;
+      --space-6: 48px;
+      --space-8: 64px;
+      --space-10: 88px;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-pill: 9999px;
+
+      --max-width: 1200px;
+      --ease-tactile: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      background-color: var(--bg-base);
+      color: var(--text-display);
+      overflow-x: clip;
+    }
+
+    body {
+      font-family: var(--font-body);
+      line-height: 1.6;
+      background-color: var(--bg-base);
+      color: var(--text-display);
+      min-height: 100dvh;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.18s var(--ease-tactile);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--space-4);
+      padding-right: var(--space-4);
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: var(--space-4);
+      background: var(--accent-cyan);
+      color: #000000;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-sm);
+      z-index: 1000;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus { top: var(--space-2); }
+
+    /* ==========================================================================
+       TECHNICAL TELEMETRY TOP BAR (Hiroto Sato inspired)
+       ========================================================================== */
+    .telemetry-strip {
+      border-bottom: 1px solid var(--border-hairline);
+      background: #07090A;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      padding: 6px 0;
+      letter-spacing: 0.04em;
+    }
+
+    .telemetry-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .telemetry-group {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .pulse-dot-green {
+      width: 6px;
+      height: 6px;
+      border-radius: var(--radius-pill);
+      background-color: var(--accent-emerald);
+      box-shadow: 0 0 8px rgba(0, 230, 118, 0.4);
+    }
+
+    /* Header */
+    .site-header {
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--border-hairline);
+      background: rgba(10, 13, 14, 0.9);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .brand-id {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-display);
+    }
+
+    .brand-role-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--accent-cyan);
+      background: var(--accent-cyan-soft);
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+    }
+
+    .site-nav ul {
+      display: flex;
+      list-style: none;
+      gap: var(--space-4);
+      align-items: center;
+    }
+
+    .site-nav a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-body);
+    }
+    .site-nav a:hover { color: var(--text-display); }
+
+    .btn-terminal-cta {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--accent-cyan);
+      background: var(--bg-surface);
+      transition: all 0.2s var(--ease-tactile);
+    }
+    .btn-terminal-cta:hover {
+      background: var(--accent-cyan);
+      color: #000000;
+      border-color: var(--accent-cyan);
+    }
+
+    /* ==========================================================================
+       HERO SECTION — ASYMMETRIC TECHNICAL SPLIT
+       ========================================================================== */
+    .hero-section {
+      padding: var(--space-10) 0 var(--space-8);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+
+    .hero-metadata-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent-emerald);
+      margin-bottom: var(--space-3);
+      letter-spacing: 0.04em;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4.2vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-display);
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-lead-text {
+      font-size: 1rem;
+      color: var(--text-body);
+      line-height: 1.65;
+      max-width: 54ch;
+      margin-bottom: var(--space-5);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .btn-atelier-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--accent-cyan);
+      color: #000000;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transition: all 0.2s var(--ease-tactile);
+    }
+    .btn-atelier-primary:hover {
+      background: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .btn-atelier-clipboard {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      color: var(--text-body);
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      transition: all 0.2s var(--ease-tactile);
+    }
+    .btn-atelier-clipboard:hover {
+      border-color: var(--border-subtle);
+      color: var(--text-display);
+    }
+
+    /* Right Column: Live Telemetry Widget */
+    .telemetry-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .telemetry-card-header {
+      background: #0E1314;
+      padding: 10px var(--space-4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-hairline);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .telemetry-pipeline-nodes {
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .telemetry-node {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+    }
+
+    .node-tag {
+      color: var(--accent-cyan);
+    }
+
+    .node-status {
+      font-size: 0.68rem;
+      color: var(--accent-emerald);
+    }
+
+    .telemetry-interactive-footer {
+      padding: var(--space-3) var(--space-4);
+      background: #0E1314;
+      border-top: 1px solid var(--border-hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-test-trigger {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      background: rgba(50, 224, 196, 0.1);
+      border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+    .btn-test-trigger:hover {
+      background: var(--accent-cyan);
+      color: #000000;
+    }
+
+    .telemetry-log-line {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       SECTION HEADERS (Technical Grid)
+       ========================================================================== */
+    .section-bar-tech {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-hairline);
+      padding-bottom: var(--space-2);
+      margin-bottom: var(--space-6);
+    }
+
+    .tech-bar-left {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .tech-sec-index {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .tech-sec-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-display);
+    }
+
+    .tech-bar-meta {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       PROJECTS SECTION: TECHNICAL ARCHITECTURES
+       ========================================================================== */
+    .projects-section {
+      padding: var(--space-10) 0;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .system-entry-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: var(--space-6);
+    }
+
+    .system-card-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px var(--space-5);
+      background: #0E1314;
+      border-bottom: 1px solid var(--border-hairline);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+    }
+
+    .system-card-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      padding: var(--space-6);
+      gap: var(--space-6);
+    }
+
+    .system-card-grid.reverse {
+      grid-template-columns: 0.85fr 1.15fr;
+    }
+
+    .badge-status-tech {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-cyan-soft);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(50, 224, 196, 0.3);
+    }
+
+    .badge-status-tech.amber {
+      background: rgba(255, 179, 0, 0.1);
+      color: var(--accent-amber);
+      border-color: rgba(255, 179, 0, 0.3);
+    }
+
+    .system-heading {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      color: var(--text-display);
+      margin-bottom: var(--space-3);
+    }
+
+    .system-desc {
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.6;
+      margin-bottom: var(--space-4);
+    }
+
+    .spec-block {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+      margin-bottom: var(--space-4);
+      font-size: 0.82rem;
+    }
+
+    .spec-row {
+      display: flex;
+      margin-bottom: 6px;
+    }
+    .spec-row:last-child { margin-bottom: 0; }
+
+    .spec-key {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      width: 130px;
+      flex-shrink: 0;
+    }
+
+    .spec-val {
+      color: var(--text-display);
+    }
+
+    .tech-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      background: #0E1314;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      color: var(--text-body);
+    }
+
+    /* Schema Box & Interactive View */
+    .blueprint-preview-box {
+      background: #090C0D;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
+      font-family: var(--font-mono);
+    }
+
+    .box-header-tabs {
+      display: flex;
+      gap: var(--space-2);
+      border-bottom: 1px solid var(--border-hairline);
+      padding-bottom: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+
+    .tab-btn {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .tab-btn.active {
+      color: var(--accent-cyan);
+      background: var(--accent-cyan-soft);
+    }
+
+    .code-preview-content {
+      font-size: 0.72rem;
+      line-height: 1.6;
+      color: #A4B5BC;
+      overflow-x: auto;
+    }
+
+    /* Voice Call Simulator (Aligned to Voice, not RAG) */
+    .call-simulator-deck {
+      background: #090C0D;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
+    }
+
+    .call-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-hairline);
+      padding-bottom: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+
+    .call-audio-track {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+
+    .btn-call-play {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-cyan);
+      color: #000000;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .call-bars-viz {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 20px;
+      flex-grow: 1;
+    }
+
+    .c-bar {
+      width: 3px;
+      height: 40%;
+      background: var(--border-subtle);
+      border-radius: 1px;
+    }
+    .c-bar.active {
+      height: 85%;
+      background: var(--accent-cyan);
+    }
+
+    .call-transcript-log {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: var(--text-body);
+      background: var(--bg-elevated);
+      padding: var(--space-3);
+      border-radius: var(--radius-sm);
+      border-left: 2px solid var(--accent-cyan);
+    }
+
+    /* ==========================================================================
+       CAPABILITIES SECTION
+       ========================================================================== */
+    .capabilities-section {
+      padding: var(--space-10) 0;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .capabilities-matrix {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+
+    .cap-matrix-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+      transition: border-color 0.2s var(--ease-tactile);
+    }
+    .cap-matrix-item:hover {
+      border-color: var(--border-subtle);
+    }
+
+    .item-id-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent-cyan);
+      margin-bottom: var(--space-2);
+      display: block;
+    }
+
+    .item-heading {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-display);
+      margin-bottom: var(--space-2);
+    }
+
+    .item-summary {
+      font-size: 0.88rem;
+      color: var(--text-body);
+      line-height: 1.55;
+      margin-bottom: var(--space-3);
+    }
+
+    .item-telemetry-pill {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent-emerald);
+      background: var(--accent-emerald-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+    }
+
+    /* ==========================================================================
+       CONTACT TERMINAL SECTION
+       ========================================================================== */
+    .contact-section {
+      padding: var(--space-10) 0 var(--space-12);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+    }
+
+    .contact-info-col h3 {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-3);
+    }
+
+    .contact-info-col p {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      line-height: 1.6;
+      margin-bottom: var(--space-5);
+    }
+
+    .terminal-link-deck {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .t-link-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .t-lbl { color: var(--text-muted); }
+    .t-val { color: var(--text-display); }
+
+    /* Form */
+    .form-terminal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+    }
+
+    .f-group { margin-bottom: var(--space-4); }
+
+    .f-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .f-input, .f-select, .f-textarea {
+      width: 100%;
+      padding: 10px 12px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      color: var(--text-display);
+      font-family: inherit;
+      font-size: 0.88rem;
+      transition: border-color 0.2s ease;
+    }
+    .f-input:focus, .f-select:focus, .f-textarea:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+    }
+
+    .btn-f-submit {
+      width: 100%;
+      background: var(--accent-cyan);
+      color: #000000;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+    .btn-f-submit:hover {
+      background: #FFFFFF;
+    }
+
+    .f-alert {
+      display: none;
+      margin-top: var(--space-3);
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: var(--accent-emerald-soft);
+      color: var(--accent-emerald);
+      border: 1px solid var(--accent-emerald);
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border-hairline);
+      padding: var(--space-5) 0;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .system-card-grid, .system-card-grid.reverse { grid-template-columns: 1fr; }
+      .capabilities-matrix { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .telemetry-inner { flex-direction: column; align-items: flex-start; }
+      .site-nav { display: none; }
+      .hero-h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to system view</a>
+
+  <!-- Hiroto Sato Inspired Telemetry Top Strip -->
+  <div class="telemetry-strip">
+    <div class="container telemetry-inner">
+      <div class="telemetry-group">
+        <span class="pulse-dot-green"></span>
+        <span>SYS.STATUS: OPERATIONAL // Q4 2026 ENGAGEMENTS ACTIVE</span>
+      </div>
+      <div class="telemetry-group">
+        <span>LOC: ANDHRA PRADESH, IN</span>
+        <span>//</span>
+        <span>TIMEZONE: IST [UTC+5:30]</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-layout">
+      <div class="brand-mark">
+        <span class="brand-id">SHAIK UBAIDULLAH</span>
+        <span class="brand-role-tag">SYSTEMS BUILDER</span>
+      </div>
+      <nav class="site-nav" aria-label="Main Terminal Navigation">
+        <ul>
+          <li><a href="#overview">/overview</a></li>
+          <li><a href="#systems">/systems</a></li>
+          <li><a href="#capabilities">/capabilities</a></li>
+          <li><a href="#contact">/contact</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="btn-terminal-cta">[ INITIATE CALL ]</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section id="overview" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-metadata-badge">
+            <span>CORE SPECIFICATION // AI AUTOMATION PIPELINES</span>
+          </div>
+          <h1 class="hero-h1">
+            Engineering autonomous AI agents & voice systems that run business operations on autopilot.
+          </h1>
+          <p class="hero-lead-text">
+            I architect resilient webhook-driven automations, LLM schema triage daemons, and 24/7 conversational voice agents that eliminate repetitive manual workflows for growing teams.
+          </p>
+          <div class="hero-actions">
+            <a href="#systems" class="btn-atelier-primary">[ VIEW ARCHITECTURES &darr; ]</a>
+            <button class="btn-atelier-clipboard" id="btn-copy-tech">
+              <span>shaikubaidullah689@gmail.com</span>
+              <span id="badge-tech-copied" style="display: none; color: var(--accent-emerald); font-weight: 600;">[COPIED]</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Telemetry Pipeline Card (Feather inspired) -->
+        <div class="telemetry-card">
+          <div class="telemetry-card-header">
+            <span>LIVE PIPELINE SIMULATOR</span>
+            <span>SIM.STATUS // ACTIVE</span>
+          </div>
+          <div class="telemetry-pipeline-nodes">
+            <div class="telemetry-node" id="sim-node-1">
+              <span>01 // Webhook Listener</span>
+              <span class="node-tag">port:8080</span>
+              <span class="node-status">LISTENING</span>
+            </div>
+            <div class="telemetry-node" id="sim-node-2">
+              <span>02 // Claude 3.5 Schema Parser</span>
+              <span class="node-tag">json-schema</span>
+              <span class="node-status">STANDBY</span>
+            </div>
+            <div class="telemetry-node" id="sim-node-3">
+              <span>03 // Supabase DB Sync</span>
+              <span class="node-tag">upsert</span>
+              <span class="node-status">READY</span>
+            </div>
+          </div>
+          <div class="telemetry-interactive-footer">
+            <span class="telemetry-log-line" id="sim-log-text">> System idle. Click trigger to test flow.</span>
+            <button class="btn-test-trigger" id="btn-trigger-sim">TEST INGEST</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curated Systems Section -->
+    <section id="systems" class="projects-section">
+      <div class="container">
+        <div class="section-bar-tech">
+          <div class="tech-bar-left">
+            <span class="tech-sec-index">01.0 //</span>
+            <h2 class="tech-sec-title">Engineered Systems & Verified Blueprints</h2>
+          </div>
+          <span class="tech-bar-meta">Proven Flow Architectures</span>
+        </div>
+
+        <!-- System 01: Lead Qualification -->
+        <div class="system-entry-card">
+          <div class="system-card-topbar">
+            <span>SYS.01 // LEAD-TRIAGE-ORCHESTRATOR</span>
+            <span class="badge-status-tech">Working Prototype</span>
+          </div>
+          <div class="system-card-grid">
+            <div class="system-col-info">
+              <h3 class="system-heading">AI Lead Qualification & CRM Orchestration Pipeline</h3>
+              <p class="system-desc">
+                An automated ingestion pipeline that receives inbound website form submissions, verifies prospect data structures against a strict JSON schema via Claude API, writes valid lead records into Supabase, and issues automated calendar booking slots.
+              </p>
+
+              <div class="spec-block">
+                <div class="spec-row">
+                  <span class="spec-key">PRIMARY PROBLEM</span>
+                  <span class="spec-val">Sales reps spend 65% of daily outreach time vetting unqualified form submissions.</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-key">VERIFIED OUTCOME</span>
+                  <span class="spec-val">Response times dropped under 5 minutes with zero manual copy-paste effort.</span>
+                </div>
+              </div>
+
+              <div class="tech-badges-row">
+                <span class="tech-pill">n8n Core</span>
+                <span class="tech-pill">Claude 3.5 Sonnet</span>
+                <span class="tech-pill">Supabase DB</span>
+                <span class="tech-pill">Webhooks</span>
+              </div>
+            </div>
+
+            <div class="system-col-visual">
+              <div class="blueprint-preview-box">
+                <div class="box-header-tabs">
+                  <span class="tab-btn active">PAYLOAD SCHEMA</span>
+                  <span class="tab-btn">PIPELINE NODE MAP</span>
+                </div>
+                <pre class="code-preview-content">
+{
+  "timestamp": "2026-10-23T00:45:00Z",
+  "endpoint": "/v1/triage",
+  "lead_evaluation": {
+    "intent": "enterprise_automation",
+    "qualification_score": 0.94,
+    "routing_action": "DISPATCH_CALENDAR_INVITE",
+    "target_crm_sync": "SUCCESS [200 OK]"
+  }
+}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- System 02: AI Voice Receptionist -->
+        <div class="system-entry-card">
+          <div class="system-card-topbar">
+            <span>SYS.02 // VOICE-AI-RECEPTIONIST</span>
+            <span class="badge-status-tech amber">Audio Prototype</span>
+          </div>
+          <div class="system-card-grid reverse">
+            <div class="system-col-visual">
+              <div class="call-simulator-deck">
+                <div class="call-meta-bar">
+                  <span>VOICE SESSION // WEBSOCKET LIVE</span>
+                  <span style="color: var(--accent-emerald);">LATENCY: 780ms</span>
+                </div>
+                <div class="call-audio-track">
+                  <button class="btn-call-play" id="btn-call-play">▶</button>
+                  <div class="call-bars-viz">
+                    <span class="c-bar active"></span>
+                    <span class="c-bar"></span>
+                    <span class="c-bar active"></span>
+                    <span class="c-bar active"></span>
+                    <span class="c-bar"></span>
+                    <span class="c-bar active"></span>
+                    <span class="c-bar"></span>
+                    <span class="c-bar active"></span>
+                  </div>
+                  <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);" id="call-timer">0:12 / 0:35</span>
+                </div>
+                <div class="call-transcript-log">
+                  "Thank you for calling. I'm the automated scheduling assistant. I can check our technician's availability or book an initial consultation. What day works best?"
+                </div>
+              </div>
+            </div>
+
+            <div class="system-col-info">
+              <h3 class="system-heading">24/7 Conversational Voice AI Receptionist</h3>
+              <p class="system-desc">
+                An interactive voice system built with Vapi and Retell AI. Capable of receiving customer phone calls, analyzing voice queries with sub-second delay, retrieving business calendar openings, and booking appointments directly into internal tools.
+              </p>
+
+              <div class="spec-block">
+                <div class="spec-row">
+                  <span class="spec-key">PRIMARY PROBLEM</span>
+                  <span class="spec-val">Businesses miss over 30% of incoming phone calls during busy hours or after-hours.</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-key">VERIFIED OUTCOME</span>
+                  <span class="spec-val">Instant 24/7 phone response with automated CRM call summary transcription.</span>
+                </div>
+              </div>
+
+              <div class="tech-badges-row">
+                <span class="tech-pill">Vapi Engine</span>
+                <span class="tech-pill">Retell AI</span>
+                <span class="tech-pill">OpenAI Voice API</span>
+                <span class="tech-pill">Google Calendar Sync</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section id="capabilities" class="capabilities-section">
+      <div class="container">
+        <div class="section-bar-tech">
+          <div class="tech-bar-left">
+            <span class="tech-sec-index">02.0 //</span>
+            <h2 class="tech-sec-title">Core Automation Capabilities</h2>
+          </div>
+          <span class="tech-bar-meta">Scope of Work</span>
+        </div>
+
+        <div class="capabilities-matrix">
+          <div class="cap-matrix-item">
+            <span class="item-id-tag">MOD.01 // AGENTS</span>
+            <h3 class="item-heading">Autonomous AI Agents</h3>
+            <p class="item-summary">Digital assistants engineered to ingest complex documents, verify data integrity, triage incoming customer tickets, and perform multi-step administrative decisions.</p>
+            <span class="item-telemetry-pill">Saves 15–20 hours/week manual data entry</span>
+          </div>
+
+          <div class="cap-matrix-item">
+            <span class="item-id-tag">MOD.02 // WORKFLOWS</span>
+            <h3 class="item-heading">Workflow Automation</h3>
+            <p class="item-summary">Direct n8n pipelines interconnecting your primary software stack (Stripe, HubSpot, Slack, Airtable) to ensure seamless, real-time data sync without human intervention.</p>
+            <span class="item-telemetry-pill">100% elimination of copy-paste sync errors</span>
+          </div>
+
+          <div class="cap-matrix-item">
+            <span class="item-id-tag">MOD.03 // VOICE</span>
+            <h3 class="item-heading">Voice AI Phone Assistants</h3>
+            <p class="item-summary">Conversational voice receptionists that manage inbound customer queries, qualify buyer parameters, and schedule booking dates on your calendar round-the-clock.</p>
+            <span class="item-telemetry-pill">24/7 lead capture with sub-800ms latency</span>
+          </div>
+
+          <div class="cap-matrix-item">
+            <span class="item-id-tag">MOD.04 // INTEGRATION</span>
+            <h3 class="item-heading">Custom Database & API Integrations</h3>
+            <p class="item-summary">Bridging your private databases, Supabase instances, and internal repositories with modern AI APIs to accelerate team decisions with semantic search.</p>
+            <span class="item-telemetry-pill">Zero manual document search overhead</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Terminal Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-bar-tech">
+          <div class="tech-bar-left">
+            <span class="tech-sec-index">03.0 //</span>
+            <h2 class="tech-sec-title">System Dispatch Terminal</h2>
+          </div>
+          <span class="tech-bar-meta">Direct Inquiries</span>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-col">
+            <h3>Initiate System Collaboration</h3>
+            <p>
+              Outline your workflow bottleneck or manual operational drag. I will evaluate your architecture and construct a practical, automated pipeline to solve it.
+            </p>
+            <div class="terminal-link-deck">
+              <div class="t-link-row">
+                <span class="t-lbl">DIRECT EMAIL</span>
+                <a href="mailto:shaikubaidullah689@gmail.com" class="t-val">shaikubaidullah689@gmail.com ↗</a>
+              </div>
+              <div class="t-link-row">
+                <span class="t-lbl">LINKEDIN</span>
+                <a href="https://www.linkedin.com/in/shaik-ubaidullah-610284394/" target="_blank" class="t-val">shaik-ubaidullah ↗</a>
+              </div>
+              <div class="t-link-row">
+                <span class="t-lbl">GITHUB</span>
+                <a href="https://github.com/shaikubaidullah-coder" target="_blank" class="t-val">shaikubaidullah-coder ↗</a>
+              </div>
+              <div class="t-link-row">
+                <span class="t-lbl">RESPONSE SLA</span>
+                <span class="t-val">&le; 24 Business Hours</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-col">
+            <div class="form-terminal-card">
+              <form id="tech-inquiry-form">
+                <div class="f-group">
+                  <label for="t-name" class="f-label">Identifier // Name</label>
+                  <input type="text" id="t-name" required class="f-input" placeholder="e.g. Jordan Vance">
+                </div>
+                <div class="f-group">
+                  <label for="t-email" class="f-label">Work Endpoint // Email</label>
+                  <input type="email" id="t-email" required class="f-input" placeholder="jordan@company.com">
+                </div>
+                <div class="f-group">
+                  <label for="t-service" class="f-label">Pipeline Focus</label>
+                  <select id="t-service" class="f-select">
+                    <option value="pipeline">End-to-End Workflow Pipeline (n8n)</option>
+                    <option value="voice">Conversational Voice Agent (Vapi / Retell)</option>
+                    <option value="agent">Autonomous AI Agent</option>
+                    <option value="consult">Architecture Audit & Strategy</option>
+                  </select>
+                </div>
+                <div class="f-group">
+                  <label for="t-msg" class="f-label">Workflow Bottleneck Spec</label>
+                  <textarea id="t-msg" required rows="3" class="f-textarea" placeholder="Detail the manual task or sync problem you want automated..."></textarea>
+                </div>
+                <button type="submit" class="btn-f-submit">[ TRANSMIT INQUIRY ]</button>
+                <div class="f-alert" id="tech-alert">
+                  [SUCCESS] Data captured in sandbox session. In production, dispatches directly to shaikubaidullah689@gmail.com.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-flex">
+      <span>SYS.BUILD // 2026 SHAIK UBAIDULLAH // DIRECTION B: TECHNICAL ATELIER</span>
+      <span>ALL SYSTEMS NOMINAL</span>
+      <a href="#overview" style="color: var(--accent-cyan); text-decoration: underline;">[ RETURN TO TOP ]</a>
+    </div>
+  </footer>
+
+  <script>
+    // 1-Click Clipboard Email Copy
+    const copyBtn = document.getElementById('btn-copy-tech');
+    const badge = document.getElementById('badge-tech-copied');
+    if (copyBtn && badge) {
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText('shaikubaidullah689@gmail.com');
+        badge.style.display = 'inline';
+        setTimeout(() => { badge.style.display = 'none'; }, 2500);
+      });
+    }
+
+    // Interactive Telemetry Ingest Simulator
+    const triggerBtn = document.getElementById('btn-trigger-sim');
+    const logText = document.getElementById('sim-log-text');
+    const node1 = document.getElementById('sim-node-1');
+    const node2 = document.getElementById('sim-node-2');
+    const node3 = document.getElementById('sim-node-3');
+
+    if (triggerBtn && logText) {
+      triggerBtn.addEventListener('click', () => {
+        triggerBtn.disabled = true;
+        logText.textContent = '> Ingesting simulated payload...';
+        node1.querySelector('.node-status').textContent = 'INGESTING';
+        node1.querySelector('.node-status').style.color = '#32E0C4';
+
+        setTimeout(() => {
+          node1.querySelector('.node-status').textContent = '200 OK';
+          node1.querySelector('.node-status').style.color = '#00E676';
+          node2.querySelector('.node-status').textContent = 'PARSING';
+          node2.querySelector('.node-status').style.color = '#32E0C4';
+          logText.textContent = '> Parsing Claude JSON schema...';
+        }, 600);
+
+        setTimeout(() => {
+          node2.querySelector('.node-status').textContent = 'VALID';
+          node2.querySelector('.node-status').style.color = '#00E676';
+          node3.querySelector('.node-status').textContent = 'SYNCING';
+          node3.querySelector('.node-status').style.color = '#32E0C4';
+          logText.textContent = '> Writing record to Supabase...';
+        }, 1200);
+
+        setTimeout(() => {
+          node3.querySelector('.node-status').textContent = 'COMPLETED';
+          node3.querySelector('.node-status').style.color = '#00E676';
+          logText.textContent = '> Pipeline executed successfully in 1.4s.';
+          triggerBtn.disabled = false;
+        }, 1800);
+      });
+    }
+
+    // Call Simulator Audio Toggle
+    const callPlayBtn = document.getElementById('btn-call-play');
+    const callTimer = document.getElementById('call-timer');
+    let callPlaying = false;
+    if (callPlayBtn && callTimer) {
+      callPlayBtn.addEventListener('click', () => {
+        callPlaying = !callPlaying;
+        callPlayBtn.textContent = callPlaying ? '❚❚' : '▶';
+        callTimer.textContent = callPlaying ? '0:24 / 0:35' : '0:12 / 0:35';
+      });
+    }
+
+    // Form Submit Simulator
+    const techForm = document.getElementById('tech-inquiry-form');
+    const techAlert = document.getElementById('tech-alert');
+    if (techForm && techAlert) {
+      techForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        techAlert.style.display = 'block';
+        techForm.reset();
+        setTimeout(() => { techAlert.style.display = 'none'; }, 6000);
+      });
+    }
+  </script>
+</body>
+</html>
