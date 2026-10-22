@@ -1,31 +1,32 @@
 /**
- * TYPOGRAPHY.CSS — Editorial Broadsheet & Monospace Telemetry
- * Fonts: Newsreader (Display Serif) + Plus Jakarta Sans (Body) + JetBrains Mono (Code)
+ * TYPOGRAPHY.CSS — Broadsheet Typography & Ledger Monospace
+ * Newsreader (Roman Display) + Plus Jakarta Sans (Editorial Body) + JetBrains Mono (Ledger Telemetry)
  */
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
-/* Display Headings (Strictly Roman - Hallmark Gate 38a) */
+/* Headlines (Strictly Roman - Hallmark Gate 38a) */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.1;
   color: var(--text-primary);
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   overflow-wrap: anywhere;
   min-width: 0;
 }
 
-.hero-headline {
+.hero-statement {
   font-size: var(--font-size-hero);
   font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   color: var(--text-primary);
+  max-width: 22ch;
 }
 
-.section-title {
+.section-headline {
   font-size: var(--font-size-2xl);
   font-weight: 500;
   line-height: 1.15;
@@ -38,15 +39,16 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-.card-title {
-  font-size: var(--font-size-lg);
-  font-weight: 600;
+.ledger-subhead {
   font-family: var(--font-sans);
-  line-height: 1.3;
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
 }
 
-/* Monospace Telemetry Labels & Swiss Metadata (Hiroto Sato inspired) */
-.mono-label {
+/* Swiss Ledger Metadata (Hiroto Sato inspired) */
+.ledger-meta {
   font-family: var(--font-mono);
   font-size: var(--font-size-xs);
   font-weight: 500;
@@ -55,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-muted);
 }
 
-.mono-accent {
+.ledger-accent {
   font-family: var(--font-mono);
   font-size: var(--font-size-xs);
   font-weight: 600;
@@ -64,59 +66,58 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--accent-terracotta);
 }
 
-.section-eyebrow {
-  display: inline-flex;
+.section-folio {
+  display: flex;
   align-items: center;
   gap: var(--space-2);
   font-family: var(--font-mono);
   font-size: var(--font-size-xs);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: var(--accent-terracotta);
   margin-bottom: var(--space-3);
 }
 
-.section-eyebrow::before {
+.section-folio::before {
   content: '';
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 16px;
+  height: 1px;
   background-color: var(--accent-terracotta);
-  border-radius: var(--radius-xs);
 }
 
-/* Body Prose */
-.lead-text {
+/* Prose Rhythm */
+.lead-prose {
   font-size: var(--font-size-md);
   line-height: 1.6;
   color: var(--text-secondary);
-  max-width: 58ch;
+  max-width: 54ch;
 }
 
-.body-text {
+.body-prose {
   font-size: var(--font-size-base);
   line-height: 1.65;
   color: var(--text-secondary);
-  max-width: 65ch;
+  max-width: 62ch;
 }
 
-.caption-text {
+.caption-prose {
   font-size: var(--font-size-sm);
   line-height: 1.5;
   color: var(--text-muted);
 }
 
-/* Code & Telemetry Elements */
-code, pre, .code-snippet {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
+.quote-prose {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.35;
+  color: var(--text-primary);
+  max-width: 48ch;
 }
 
-.code-inline {
-  background-color: var(--canvas-elevated);
-  border: 1px solid var(--border-subtle);
-  padding: 2px 6px;
-  border-radius: var(--radius-xs);
-  color: var(--text-primary);
+/* Code & Telemetry */
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
 }

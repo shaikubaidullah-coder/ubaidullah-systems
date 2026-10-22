@@ -1,66 +1,57 @@
 /**
  * TOKENS.CSS — Master Design Token System
- * Architectural Broadsheet + Technical Atelier
- * Compliance with Hallmark, Design-Taste-Frontend & Reticle standards
+ * Concept: Architectural Broadsheet & Systems Ledger
+ * Compliance: Hallmark Anti-Slop, Design-Taste-Frontend & Reticle Standards
  */
 
 :root {
-  /* Surface & Canvas (Warm Archival Paper) */
-  --canvas-base: #FBF9F4;
-  --canvas-surface: #FFFFFF;
-  --canvas-elevated: #F5F1E8;
-  --canvas-inset: #EDE7DC;
+  /* Surfaces & Canvas (Warm Archival Broadsheet) */
+  --canvas-base: #FAF8F3;         /* Warm Archival Bone */
+  --canvas-surface: #FFFFFF;      /* Clean White Ledger */
+  --canvas-elevated: #F3EFE6;     /* Tinted Cream Section */
+  --canvas-inset: #EAE4D7;        /* Inset Recessed Surface */
+  --canvas-dark: #121415;         /* Deep Carbon Slate */
   
-  /* Hairline Borders */
-  --border-subtle: rgba(26, 25, 24, 0.08);
-  --border-medium: rgba(26, 25, 24, 0.16);
-  --border-strong: rgba(26, 25, 24, 0.32);
-  --border-accent: rgba(200, 75, 38, 0.35);
-
-  /* Contrast Technical Panels (The Atelier Engine) */
-  --atelier-canvas: #121516;
-  --atelier-surface: #181C1E;
-  --atelier-elevated: #212629;
-  --atelier-border: rgba(255, 255, 255, 0.1);
-  --atelier-border-hover: rgba(50, 224, 196, 0.4);
-  --atelier-text: #F3F5F7;
-  --atelier-muted: #8E9A9F;
-  --atelier-code: #32E0C4;
-  --atelier-accent: #00E676;
+  /* Hairline Ledger Rules (No heavy card boxes) */
+  --rule-subtle: rgba(28, 26, 24, 0.08);
+  --rule-medium: rgba(28, 26, 24, 0.16);
+  --rule-strong: rgba(28, 26, 24, 0.32);
+  --rule-accent: rgba(196, 69, 31, 0.35);
 
   /* Typography Colors */
-  --text-primary: #191A1B;
-  --text-secondary: #484C50;
-  --text-muted: #73787D;
-  --text-faint: #9EA3A8;
-  --text-inverse: #FFFFFF;
+  --text-primary: #18191A;        /* Deep Carbon Ink */
+  --text-secondary: #4A4E52;      /* Architectural Graphite */
+  --text-muted: #74797E;          /* Muted Slate */
+  --text-faint: #A0A5AA;          /* Ledger Column Header */
+  --text-inverse: #FFFFFF;        /* White text for dark elements */
 
-  /* Functional Accents */
-  --accent-terracotta: #C84B26;
-  --accent-terracotta-hover: #B33F1D;
-  --accent-terracotta-subtle: rgba(200, 75, 38, 0.08);
-  --accent-emerald: #0F9D58;
-  --accent-emerald-subtle: rgba(15, 157, 88, 0.12);
-  --accent-amber: #D9822B;
-  --accent-amber-subtle: rgba(217, 130, 43, 0.12);
-  --accent-cyan: #0097A7;
-  --accent-cyan-subtle: rgba(0, 151, 167, 0.12);
+  /* Functional Accents (Restrained, max 1 primary accent) */
+  --accent-terracotta: #C4451F;   /* Artisan Terracotta */
+  --accent-terracotta-hover: #AF3C19;
+  --accent-terracotta-subtle: rgba(196, 69, 31, 0.08);
+  
+  --accent-emerald: #0D8A4E;      /* Verified Status */
+  --accent-emerald-subtle: rgba(13, 138, 78, 0.1);
+  --accent-amber: #C8751B;        /* Staging / Prototype */
+  --accent-amber-subtle: rgba(200, 117, 27, 0.1);
+  --accent-cyan: #0E8394;         /* Telemetry / Data Link */
+  --accent-cyan-subtle: rgba(14, 131, 148, 0.1);
 
   /* Typography Families */
   --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
 
-  /* Type Scale */
-  --font-size-xs: 0.75rem;     /* 12px */
-  --font-size-sm: 0.84375rem;  /* 13.5px */
-  --font-size-base: 0.96875rem;/* 15.5px */
-  --font-size-md: 1.125rem;    /* 18px */
-  --font-size-lg: 1.375rem;    /* 22px */
-  --font-size-xl: 1.875rem;    /* 30px */
-  --font-size-2xl: 2.5rem;     /* 40px */
-  --font-size-3xl: 3.5rem;     /* 56px */
-  --font-size-hero: clamp(2.35rem, 5.2vw, 4.15rem);
+  /* Scale */
+  --font-size-xs: 0.75rem;       /* 12px */
+  --font-size-sm: 0.84375rem;    /* 13.5px */
+  --font-size-base: 0.96875rem;  /* 15.5px */
+  --font-size-md: 1.125rem;      /* 18px */
+  --font-size-lg: 1.375rem;      /* 22px */
+  --font-size-xl: 1.875rem;      /* 30px */
+  --font-size-2xl: 2.5rem;       /* 40px */
+  --font-size-3xl: 3.5rem;       /* 56px */
+  --font-size-hero: clamp(2.5rem, 5.8vw, 4.5rem);
 
   /* Spacing Scale (8-point System) */
   --space-1: 4px;
@@ -74,21 +65,14 @@
   --space-9: 96px;
   --space-10: 128px;
 
-  /* Geometry & Radii */
-  --radius-xs: 3px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  /* Geometry & Radii (Disciplined, minimal roundness) */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
   --radius-pill: 9999px;
 
-  /* Shadows (Calibrated to background tone, no blurry glows) */
-  --shadow-subtle: 0 1px 3px rgba(26, 25, 24, 0.05), 0 1px 2px rgba(26, 25, 24, 0.03);
-  --shadow-card: 0 4px 16px rgba(26, 25, 24, 0.06), 0 1px 3px rgba(26, 25, 24, 0.04);
-  --shadow-elevated: 0 12px 32px rgba(26, 25, 24, 0.08), 0 2px 6px rgba(26, 25, 24, 0.04);
-
-  /* Motion & Spring Physics */
+  /* Spring Physics & Motion */
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 150ms;
   --duration-normal: 260ms;
-  --duration-slow: 450ms;
 }
