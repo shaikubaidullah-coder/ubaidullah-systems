@@ -83,7 +83,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Global Keyboard Shortcuts Listener
+  // 5. Mobile Navigation Drawer Toggle
+  const mobileToggle = document.getElementById('mobile-nav-toggle');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  if (mobileToggle && mobileDrawer) {
+    mobileToggle.addEventListener('click', () => {
+      const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', String(!isExpanded));
+      mobileDrawer.classList.toggle('is-open');
+    });
+
+    mobileDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('is-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // 6. Global Keyboard Shortcuts Listener
   let lastKey = '';
   document.addEventListener('keydown', (e) => {
     if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;

@@ -1,123 +1,107 @@
 /**
- * TYPOGRAPHY.CSS — Broadsheet Typography & Ledger Monospace
- * Newsreader (Roman Display) + Plus Jakarta Sans (Editorial Body) + JetBrains Mono (Ledger Telemetry)
+ * TYPOGRAPHY.CSS — Typographic Hierarchy & Character
+ * System: Instrument Serif + Geist + Geist Mono
+ * Hallmark Gate 38a Compliant: Upright roman display headers (no italic headers)
  */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-
-/* Headlines (Strictly Roman - Hallmark Gate 38a) */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, .font-display {
   font-family: var(--font-display);
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.1;
-  color: var(--text-primary);
+  font-weight: 400;
+  font-style: normal; /* Strictly upright roman per Hallmark rule */
+  color: var(--text-ink);
   letter-spacing: -0.02em;
-  overflow-wrap: anywhere;
-  min-width: 0;
+  text-wrap: balance;
 }
 
 .hero-statement {
   font-size: var(--font-size-hero);
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  color: var(--text-primary);
-  max-width: 22ch;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  color: var(--text-ink);
+  margin-bottom: var(--space-5);
 }
 
-.section-headline {
-  font-size: var(--font-size-2xl);
-  font-weight: 500;
-  line-height: 1.15;
+.section-heading {
+  font-size: var(--font-size-h2);
+  line-height: 1.18;
   letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--text-ink);
+  margin-bottom: var(--space-4);
 }
 
 .exhibit-title {
-  font-size: var(--font-size-xl);
-  font-weight: 500;
-  line-height: 1.2;
+  font-size: var(--font-size-h3);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  color: var(--text-ink);
+  margin-bottom: var(--space-2);
 }
 
-.ledger-subhead {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-md);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--text-primary);
-}
-
-/* Swiss Ledger Metadata (Hiroto Sato inspired) */
-.ledger-meta {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-}
-
-.ledger-accent {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--accent-terracotta);
-}
-
-.section-folio {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent-terracotta);
-  margin-bottom: var(--space-3);
-}
-
-.section-folio::before {
-  content: '';
-  display: inline-block;
-  width: 16px;
-  height: 1px;
-  background-color: var(--accent-terracotta);
-}
-
-/* Prose Rhythm */
 .lead-prose {
-  font-size: var(--font-size-md);
-  line-height: 1.6;
-  color: var(--text-secondary);
-  max-width: 54ch;
+  font-size: var(--font-size-lead);
+  line-height: 1.62;
+  color: var(--text-muted);
+  max-width: 65ch;
+  margin-bottom: var(--space-6);
 }
 
 .body-prose {
   font-size: var(--font-size-base);
   line-height: 1.65;
-  color: var(--text-secondary);
-  max-width: 62ch;
-}
-
-.caption-prose {
-  font-size: var(--font-size-sm);
-  line-height: 1.5;
   color: var(--text-muted);
+  max-width: 65ch;
 }
 
-.quote-prose {
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  line-height: 1.35;
-  color: var(--text-primary);
-  max-width: 48ch;
-}
-
-/* Code & Telemetry */
-code, pre {
+/* Monospace & Metadata Elements */
+.font-mono, .ledger-meta, .section-folio, .status-tag, .table-cell-mono {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-feature-settings: "tnum" 1, "zero" 1;
+}
+
+.section-folio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-steel);
+  font-weight: 500;
+  margin-bottom: var(--space-3);
+}
+
+.ledger-meta {
+  font-size: var(--font-size-meta);
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+}
+
+.micro-label {
+  font-size: var(--font-size-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+}
+
+/* Links & Text Highlights */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-spring);
+}
+
+.editorial-link {
+  color: var(--accent-steel);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: all var(--duration-fast) var(--ease-spring);
+}
+
+.editorial-link:hover {
+  color: var(--accent-steel-hover);
+  text-decoration-thickness: 2px;
 }

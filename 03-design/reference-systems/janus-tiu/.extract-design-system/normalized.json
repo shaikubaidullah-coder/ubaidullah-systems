@@ -1,0 +1,40 @@
+{
+  "source": {
+    "url": "https://portfolio.janustiu.com/",
+    "extractedAt": "2026-10-24T10:02:00.736Z",
+    "extractor": "dembrandt"
+  },
+  "colors": {
+    "palette": [],
+    "cssVariables": {}
+  },
+  "typography": {
+    "headingFont": "Instrument Serif",
+    "bodyFont": "Instrument Serif"
+  },
+  "spacing": {
+    "scale": [
+      "1px",
+      "3px",
+      "4px",
+      "6px",
+      "8px",
+      "10px",
+      "11px",
+      "14px",
+      "15px",
+      "18px",
+      "20px",
+      "36px",
+      "56px",
+      "96px",
+      "110px"
+    ]
+  },
+  "radius": {
+    "scale": []
+  },
+  "shadows": {
+    "scale": []
+  }
+}

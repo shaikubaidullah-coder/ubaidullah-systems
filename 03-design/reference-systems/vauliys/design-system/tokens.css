@@ -1,0 +1,15 @@
+:root {
+  --color-primary: rgb(40, 40, 40);
+  --font-heading: Henriette;
+  --font-body: Henriette;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 80px;
+  --space-9: 192px;
+  --space-10: 208px;
+}

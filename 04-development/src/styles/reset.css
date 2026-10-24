@@ -1,6 +1,6 @@
 /**
  * RESET.CSS — Modern Resilient Reset
- * Conforms to Hallmark Gate 34 (overflow-x: clip) & a11y standards
+ * Conforms to Hallmark Gate 34 (overflow-x: clip), Gate 40 (Focus Rings), and a11y standards
  */
 
 *, *::before, *::after {
@@ -17,8 +17,8 @@ html {
 }
 
 body {
-  background-color: var(--canvas-base);
-  color: var(--text-primary);
+  background-color: var(--bg-canvas);
+  color: var(--text-ink);
   font-family: var(--font-sans);
   font-size: var(--font-size-base);
   line-height: 1.6;
@@ -35,7 +35,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent-terracotta);
+  outline: 2px solid var(--accent-steel);
   outline-offset: 3px;
 }
 
@@ -49,6 +49,7 @@ img, picture, svg, video {
 /* Typography elements */
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
+  hyphens: manual;
 }
 
 /* List resets */
@@ -66,17 +67,31 @@ input, button, textarea, select {
 
 button {
   cursor: pointer;
-  user-select: none;
+  touch-action: manipulation;
 }
 
 /* Table resets */
 table {
   border-collapse: collapse;
-  border-spacing: 0;
+  width: 100%;
 }
 
-/* Selection */
-::selection {
-  background-color: var(--accent-terracotta);
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  background: var(--text-ink);
   color: var(--text-inverse);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-meta);
+  z-index: 9999;
+  text-decoration: none;
+  border-radius: var(--radius-xs);
+  transition: top var(--duration-fast) var(--ease-spring);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
 }

@@ -1,0 +1,31 @@
+{
+  "source": {
+    "url": "https://hirotos.com/",
+    "extractedAt": "2026-10-24T09:59:36.524Z",
+    "extractor": "dembrandt"
+  },
+  "colors": {
+    "palette": [],
+    "cssVariables": {}
+  },
+  "typography": {
+    "headingFont": "helvetica-neue-lt-pro",
+    "bodyFont": "helvetica-neue-lt-pro"
+  },
+  "spacing": {
+    "scale": [
+      "2px",
+      "3px",
+      "7px",
+      "10px",
+      "40px",
+      "45px"
+    ]
+  },
+  "radius": {
+    "scale": []
+  },
+  "shadows": {
+    "scale": []
+  }
+}

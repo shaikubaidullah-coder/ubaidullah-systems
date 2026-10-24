@@ -25,7 +25,7 @@ export function initContactDispatch() {
     const errEl = document.getElementById(errorId);
     if (errEl) {
       errEl.textContent = message;
-      errEl.classList.add('visible');
+      errEl.style.display = 'block';
     }
   }
 
@@ -33,7 +33,8 @@ export function initContactDispatch() {
     input.classList.remove('invalid');
     const errEl = document.getElementById(errorId);
     if (errEl) {
-      errEl.classList.remove('visible');
+      errEl.textContent = '';
+      errEl.style.display = 'none';
     }
   }
 
@@ -44,6 +45,12 @@ export function initContactDispatch() {
       });
     }
   });
+
+  if (scopeSelect) {
+    scopeSelect.addEventListener('change', () => {
+      clearError(scopeSelect, 'monograph-scope-error');
+    });
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -111,26 +118,26 @@ export function initContactDispatch() {
         });
         if (!response.ok) throw new Error('Endpoint rejected submission');
       } else {
-        await new Promise(r => setTimeout(r, 600));
+        await new Promise(r => setTimeout(r, 400));
       }
 
       form.style.display = 'none';
-      receipt.classList.add('visible');
+      receipt.classList.add('show', 'visible');
       receipt.innerHTML = `
         <div style="display: flex; flex-direction: column; gap: var(--space-3);">
           <div style="display: flex; align-items: center; gap: var(--space-2);">
-            <span style="color: var(--accent-emerald); font-weight: 700;">✓</span>
-            <strong style="font-family: var(--font-sans); font-size: var(--font-size-md);">Project Brief Logged</strong>
+            <span style="color: var(--status-live); font-weight: 700;">✓</span>
+            <strong style="font-family: var(--font-sans); font-size: var(--font-size-lead); color: var(--text-ink);">Project Brief Logged</strong>
           </div>
-          <p style="font-size: var(--font-size-base); color: var(--text-secondary); line-height: 1.6;">
+          <p style="font-size: var(--font-size-base); color: var(--text-muted); line-height: 1.6;">
             Thank you, <strong>${formData.name}</strong>. Your project brief for <strong>${formData.scope}</strong> has been recorded. 
             Shaik Ubaidullah reviews all technical parameters personally and responds within 24 hours.
           </p>
           <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-2);">
-            <a href="mailto:shaikubaidullah689@gmail.com?subject=Project%20Brief%20Follow-up%20(${encodeURIComponent(formData.name)})" class="btn btn-primary" style="font-size: var(--font-size-xs);">
+            <a href="mailto:shaikubaidullah689@gmail.com?subject=Project%20Brief%20Follow-up%20(${encodeURIComponent(formData.name)})" class="btn btn-primary" style="font-size: var(--font-size-sm);">
               Send Direct Email Confirmation ↗
             </a>
-            <button type="button" class="btn btn-secondary" onclick="window.location.reload();" style="font-size: var(--font-size-xs);">
+            <button type="button" class="btn btn-secondary" onclick="window.location.reload();" style="font-size: var(--font-size-sm);">
               Submit Another Brief
             </button>
           </div>
@@ -141,7 +148,7 @@ export function initContactDispatch() {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalBtnText;
       if (errorSummary) {
-        errorSummary.innerHTML = `Dispatch endpoint unavailable. Please email Shaik directly at <a href="mailto:shaikubaidullah689@gmail.com" style="color: var(--accent-terracotta);">shaikubaidullah689@gmail.com</a>.`;
+        errorSummary.innerHTML = `Dispatch endpoint unavailable. Please email Shaik directly at <a href="mailto:shaikubaidullah689@gmail.com" class="editorial-link">shaikubaidullah689@gmail.com</a>.`;
         errorSummary.style.display = 'block';
       }
     }

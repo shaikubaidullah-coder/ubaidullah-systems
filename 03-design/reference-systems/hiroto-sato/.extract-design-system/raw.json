@@ -1,0 +1,214 @@
+{
+  "url": "https://hirotos.com/",
+  "extractedAt": "2026-10-24T09:59:36.524Z",
+  "siteName": null,
+  "logo": null,
+  "favicons": [
+    {
+      "type": "icon",
+      "url": "https://hirotos.com/favicon.ico?favicon.12lado4ku_uav.ico",
+      "sizes": "48x48"
+    },
+    {
+      "type": "favicon.ico",
+      "url": "https://hirotos.com/favicon.ico",
+      "sizes": null
+    }
+  ],
+  "colors": {
+    "semantic": {},
+    "palette": [
+      {
+        "color": "rgb(16, 16, 15)",
+        "normalized": "#10100f",
+        "count": 14,
+        "confidence": "medium",
+        "sources": [],
+        "lch": "lch(4.65% 0.54 110.17)",
+        "oklch": "oklch(17.26% 0.002 106.61)"
+      },
+      {
+        "color": "rgb(255, 255, 255)",
+        "normalized": "#ffffff",
+        "count": 3,
+        "confidence": "low",
+        "sources": [],
+        "lch": "lch(100% 0 158.2)",
+        "oklch": "oklch(100% 0 89.88)"
+      },
+      {
+        "color": "rgba(11, 11, 10, 0.92)",
+        "normalized": "#0b0b0a",
+        "count": 1,
+        "confidence": "medium",
+        "sources": [
+          "hover/focus"
+        ]
+      }
+    ],
+    "cssVariables": {},
+    "_raw": [
+      {
+        "color": "rgb(255, 255, 255)",
+        "normalized": "#ffffff",
+        "count": 3
+      },
+      {
+        "color": "rgb(16, 16, 15)",
+        "normalized": "#10100f",
+        "count": 14
+      },
+      {
+        "color": "rgb(11, 11, 10)",
+        "normalized": "#0b0b0a",
+        "count": 44
+      }
+    ]
+  },
+  "typography": {
+    "styles": [
+      {
+        "context": "heading-1",
+        "family": "helvetica-neue-lt-pro",
+        "fallbacks": null,
+        "size": "53.76px (3.36rem)",
+        "weight": 500,
+        "lineHeight": "0.98",
+        "spacing": null,
+        "transform": null
+      },
+      {
+        "context": "caption",
+        "family": "helvetica-neue-lt-pro",
+        "fallbacks": null,
+        "size": "13.176px (0.82rem)",
+        "weight": 500,
+        "lineHeight": "1.00",
+        "spacing": "0.59292px",
+        "transform": "uppercase"
+      },
+      {
+        "context": "link",
+        "family": "helvetica-neue-lt-pro",
+        "fallbacks": null,
+        "size": "13.176px (0.82rem)",
+        "weight": 400,
+        "lineHeight": "1.00",
+        "spacing": "0.59292px",
+        "transform": "uppercase"
+      }
+    ],
+    "sources": {
+      "googleFonts": [],
+      "adobeFonts": true,
+      "variableFonts": false
+    }
+  },
+  "spacing": {
+    "scaleType": "8px",
+    "commonValues": [
+      {
+        "px": "2px",
+        "rem": "0.13rem",
+        "count": 4,
+        "numericValue": 2
+      },
+      {
+        "px": "3px",
+        "rem": "0.19rem",
+        "count": 4,
+        "numericValue": 3
+      },
+      {
+        "px": "7px",
+        "rem": "0.44rem",
+        "count": 3,
+        "numericValue": 7
+      },
+      {
+        "px": "10px",
+        "rem": "0.63rem",
+        "count": 4,
+        "numericValue": 10
+      },
+      {
+        "px": "40px",
+        "rem": "2.50rem",
+        "count": 2,
+        "numericValue": 40
+      },
+      {
+        "px": "45px",
+        "rem": "2.81rem",
+        "count": 2,
+        "numericValue": 45
+      }
+    ]
+  },
+  "borderRadius": {
+    "values": []
+  },
+  "borders": {
+    "combinations": [
+      {
+        "width": "1px 0px 0px",
+        "style": "solid none none",
+        "color": "rgba(11, 11, 10, 0.16)",
+        "count": 3,
+        "elements": [
+          "div"
+        ],
+        "confidence": "low"
+      }
+    ]
+  },
+  "shadows": [],
+  "components": {
+    "buttons": [],
+    "inputs": {
+      "text": [],
+      "checkbox": [],
+      "radio": [],
+      "select": []
+    },
+    "links": [
+      {
+        "color": "rgb(11, 11, 10)",
+        "textDecoration": "none",
+        "fontWeight": "400",
+        "states": {
+          "default": {
+            "color": "rgb(11, 11, 10)",
+            "textDecoration": "none"
+          },
+          "hover": {
+            "color": "rgb(11, 11, 10)"
+          }
+        }
+      }
+    ],
+    "badges": {
+      "all": [],
+      "byVariant": {
+        "error": [],
+        "warning": [],
+        "success": [],
+        "info": [],
+        "neutral": []
+      }
+    }
+  },
+  "breakpoints": [
+    {
+      "px": "620px"
+    },
+    {
+      "px": "720px"
+    },
+    {
+      "px": "960px"
+    }
+  ],
+  "iconSystem": [],
+  "frameworks": []
+}

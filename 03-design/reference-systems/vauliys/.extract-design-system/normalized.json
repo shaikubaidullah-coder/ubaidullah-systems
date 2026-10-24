@@ -1,0 +1,38 @@
+{
+  "source": {
+    "url": "https://vauliys.com/",
+    "extractedAt": "2026-10-24T09:54:17.589Z",
+    "extractor": "dembrandt"
+  },
+  "colors": {
+    "primary": "rgb(40, 40, 40)",
+    "palette": [
+      "rgb(40, 40, 40)"
+    ],
+    "cssVariables": {}
+  },
+  "typography": {
+    "headingFont": "Henriette",
+    "bodyFont": "Henriette"
+  },
+  "spacing": {
+    "scale": [
+      "4px",
+      "8px",
+      "16px",
+      "24px",
+      "32px",
+      "48px",
+      "64px",
+      "80px",
+      "192px",
+      "208px"
+    ]
+  },
+  "radius": {
+    "scale": []
+  },
+  "shadows": {
+    "scale": []
+  }
+}

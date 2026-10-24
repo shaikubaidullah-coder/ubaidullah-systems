@@ -1,0 +1,470 @@
+{
+  "url": "https://vauliys.com/",
+  "extractedAt": "2026-10-24T09:54:17.589Z",
+  "siteName": "Vauliys",
+  "logo": {
+    "source": "img",
+    "url": "https://vauliys.com/asset-suite/client-logo-sm.svg",
+    "width": 400,
+    "height": 32,
+    "alt": "[client logos]",
+    "safeZone": {
+      "top": 32,
+      "right": 0,
+      "bottom": 32,
+      "left": 0
+    },
+    "background": "rgb(253, 253, 245)"
+  },
+  "favicons": [
+    {
+      "type": "icon",
+      "url": "https://vauliys.com/asset-suite/favicon.ico",
+      "sizes": null
+    },
+    {
+      "type": "icon",
+      "url": "https://vauliys.com/asset-suite/favicon.png",
+      "sizes": "32x32"
+    },
+    {
+      "type": "icon",
+      "url": "https://vauliys.com/asset-suite/favicon.png",
+      "sizes": "16x16"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://vauliys.com/asset-suite/favicon.png",
+      "sizes": "180x180"
+    },
+    {
+      "type": "apple-touch-icon",
+      "url": "https://vauliys.com/asset-suite/favicon.png",
+      "sizes": "180x180"
+    },
+    {
+      "type": "og:image",
+      "url": "https://vauliys.com/asset-suite/link-preview.jpg",
+      "sizes": null
+    }
+  ],
+  "colors": {
+    "semantic": {
+      "primary": "rgb(40, 40, 40)"
+    },
+    "palette": [
+      {
+        "color": "rgb(40, 40, 40)",
+        "normalized": "#282828",
+        "count": 225,
+        "confidence": "high",
+        "sources": [
+          "grid-container",
+          "hover",
+          "fa-brands"
+        ],
+        "lch": "lch(16.11% 0 158.2)",
+        "oklch": "oklch(27.68% 0 89.88)"
+      },
+      {
+        "color": "rgb(253, 253, 245)",
+        "normalized": "#fdfdf5",
+        "count": 17,
+        "confidence": "medium",
+        "sources": [],
+        "lch": "lch(99.11% 4.06 109.87)",
+        "oklch": "oklch(99.19% 0.011 106.59)"
+      },
+      {
+        "color": "rgb(197, 222, 155)",
+        "normalized": "#c5de9b",
+        "count": 4,
+        "confidence": "high",
+        "sources": [
+          "hover"
+        ],
+        "lch": "lch(85.24% 35.99 122.93)",
+        "oklch": "oklch(86.58% 0.092 124.9)"
+      },
+      {
+        "color": "rgb(52, 56, 49)",
+        "normalized": "#343831",
+        "count": 1,
+        "confidence": "medium",
+        "sources": [
+          "hover/focus"
+        ]
+      }
+    ],
+    "cssVariables": {},
+    "_raw": [
+      {
+        "color": "rgb(40, 40, 40)",
+        "normalized": "#282828",
+        "count": 225
+      },
+      {
+        "color": "rgb(253, 253, 245)",
+        "normalized": "#fdfdf5",
+        "count": 17
+      },
+      {
+        "color": "rgb(239, 238, 220)",
+        "normalized": "#efeedc",
+        "count": 3
+      },
+      {
+        "color": "rgb(197, 222, 155)",
+        "normalized": "#c5de9b",
+        "count": 4
+      }
+    ]
+  },
+  "typography": {
+    "styles": [
+      {
+        "context": "heading-1",
+        "family": "Henriette",
+        "fallbacks": null,
+        "size": "40px (2.50rem)",
+        "weight": 500,
+        "lineHeight": null,
+        "spacing": "-1.6px",
+        "transform": null
+      },
+      {
+        "context": "heading-1",
+        "family": "Henriette",
+        "fallbacks": null,
+        "size": "40px (2.50rem)",
+        "weight": 300,
+        "lineHeight": null,
+        "spacing": null,
+        "transform": null
+      },
+      {
+        "context": "heading-1",
+        "family": "Henriette",
+        "fallbacks": null,
+        "size": "24px (1.50rem)",
+        "weight": 300,
+        "lineHeight": null,
+        "spacing": null,
+        "transform": null
+      },
+      {
+        "context": "heading-1",
+        "family": "Henriette",
+        "fallbacks": null,
+        "size": "16px (1.00rem)",
+        "weight": 400,
+        "lineHeight": null,
+        "spacing": null,
+        "transform": null
+      },
+      {
+        "context": "heading-1",
+        "family": "Henriette",
+        "fallbacks": null,
+        "size": "14.4px (0.90rem)",
+        "weight": 400,
+        "lineHeight": null,
+        "spacing": null,
+        "transform": null
+      },
+      {
+        "context": "link",
+        "family": "Henriette",
+        "fallbacks": null,
+        "size": "14.4px (0.90rem)",
+        "weight": 400,
+        "lineHeight": null,
+        "spacing": null,
+        "transform": null
+      },
+      {
+        "context": "button",
+        "family": "Henriette",
+        "fallbacks": null,
+        "size": "14.4px (0.90rem)",
+        "weight": 400,
+        "lineHeight": null,
+        "spacing": null,
+        "transform": null
+      },
+      {
+        "context": "heading-1",
+        "family": "Italic",
+        "fallbacks": "Henriette",
+        "size": "14.4px (0.90rem)",
+        "weight": 400,
+        "lineHeight": null,
+        "spacing": null,
+        "transform": null
+      },
+      {
+        "context": "heading-1",
+        "family": "Henriette",
+        "fallbacks": null,
+        "size": "14.4px (0.90rem)",
+        "weight": 400,
+        "lineHeight": null,
+        "spacing": null,
+        "transform": "uppercase"
+      },
+      {
+        "context": "caption",
+        "family": "Henriette",
+        "fallbacks": null,
+        "size": "12.8px (0.80rem)",
+        "weight": 400,
+        "lineHeight": null,
+        "spacing": null,
+        "transform": "uppercase"
+      },
+      {
+        "context": "caption",
+        "family": "Henriette",
+        "fallbacks": null,
+        "size": "12.8px (0.80rem)",
+        "weight": 400,
+        "lineHeight": null,
+        "spacing": null,
+        "transform": null
+      },
+      {
+        "context": "caption",
+        "family": "Henriette",
+        "fallbacks": null,
+        "size": "9.6px (0.60rem)",
+        "weight": 400,
+        "lineHeight": null,
+        "spacing": null,
+        "transform": "uppercase"
+      },
+      {
+        "context": "button",
+        "family": "Henriette",
+        "fallbacks": null,
+        "size": "8px (0.50rem)",
+        "weight": 400,
+        "lineHeight": null,
+        "spacing": null,
+        "transform": null
+      }
+    ],
+    "sources": {
+      "googleFonts": [],
+      "adobeFonts": false,
+      "variableFonts": false
+    }
+  },
+  "spacing": {
+    "scaleType": "8px",
+    "commonValues": [
+      {
+        "px": "4px",
+        "rem": "0.25rem",
+        "count": 14,
+        "numericValue": 4
+      },
+      {
+        "px": "8px",
+        "rem": "0.50rem",
+        "count": 56,
+        "numericValue": 8
+      },
+      {
+        "px": "16px",
+        "rem": "1.00rem",
+        "count": 14,
+        "numericValue": 16
+      },
+      {
+        "px": "24px",
+        "rem": "1.50rem",
+        "count": 7,
+        "numericValue": 24
+      },
+      {
+        "px": "32px",
+        "rem": "2.00rem",
+        "count": 12,
+        "numericValue": 32
+      },
+      {
+        "px": "48px",
+        "rem": "3.00rem",
+        "count": 2,
+        "numericValue": 48
+      },
+      {
+        "px": "64px",
+        "rem": "4.00rem",
+        "count": 1,
+        "numericValue": 64
+      },
+      {
+        "px": "80px",
+        "rem": "5.00rem",
+        "count": 8,
+        "numericValue": 80
+      },
+      {
+        "px": "192px",
+        "rem": "12.00rem",
+        "count": 1,
+        "numericValue": 192
+      },
+      {
+        "px": "208px",
+        "rem": "13.00rem",
+        "count": 1,
+        "numericValue": 208
+      }
+    ]
+  },
+  "borderRadius": {
+    "values": [
+      {
+        "value": "2px",
+        "count": 1,
+        "elements": [
+          "div"
+        ],
+        "confidence": "low",
+        "numericValue": 2
+      },
+      {
+        "value": "8px",
+        "count": 30,
+        "elements": [
+          "video",
+          "img",
+          "input",
+          "textarea"
+        ],
+        "confidence": "high",
+        "numericValue": 8
+      },
+      {
+        "value": "160px",
+        "count": 13,
+        "elements": [
+          "button"
+        ],
+        "confidence": "high",
+        "numericValue": 160
+      }
+    ]
+  },
+  "borders": {
+    "combinations": [
+      {
+        "width": "0px 0px 1px",
+        "style": "none none solid",
+        "color": "rgb(40, 40, 40)",
+        "count": 1,
+        "elements": [
+          "div"
+        ],
+        "confidence": "low"
+      }
+    ]
+  },
+  "shadows": [],
+  "components": {
+    "buttons": [
+      {
+        "states": {
+          "default": {
+            "backgroundColor": "rgb(197, 222, 155)",
+            "color": "rgb(40, 40, 40)",
+            "padding": "8px 12.8px",
+            "borderRadius": "160px",
+            "border": "0px none rgb(40, 40, 40)",
+            "boxShadow": "none",
+            "outline": "rgb(52, 56, 49) solid 1px",
+            "transform": "none",
+            "opacity": "1"
+          },
+          "hover": {
+            "color": "var(--black)"
+          },
+          "active": null,
+          "focus": null
+        },
+        "fontWeight": "400",
+        "fontSize": "14.4px",
+        "classes": "hover",
+        "confidence": "high"
+      }
+    ],
+    "inputs": {
+      "text": [
+        {
+          "specificType": "text",
+          "states": {
+            "default": {
+              "backgroundColor": "rgb(253, 253, 245)",
+              "color": "rgb(40, 40, 40)",
+              "border": "0px none rgb(40, 40, 40)",
+              "borderRadius": "8px",
+              "padding": "8px 12.8px",
+              "boxShadow": "none",
+              "outline": "rgb(52, 56, 49) solid 1px"
+            },
+            "focus": null
+          }
+        }
+      ],
+      "checkbox": [],
+      "radio": [],
+      "select": []
+    },
+    "links": [
+      {
+        "color": "rgb(40, 40, 40)",
+        "textDecoration": "none",
+        "fontWeight": "400",
+        "states": {
+          "default": {
+            "color": "rgb(40, 40, 40)",
+            "textDecoration": "none"
+          },
+          "hover": {
+            "color": "var(--black)"
+          }
+        }
+      }
+    ],
+    "badges": {
+      "all": [],
+      "byVariant": {
+        "error": [],
+        "warning": [],
+        "success": [],
+        "info": [],
+        "neutral": []
+      }
+    }
+  },
+  "breakpoints": [
+    {
+      "px": "600px"
+    },
+    {
+      "px": "750px"
+    },
+    {
+      "px": "1000px"
+    }
+  ],
+  "iconSystem": [
+    {
+      "name": "Font Awesome",
+      "type": "icon-font"
+    }
+  ],
+  "frameworks": []
+}

@@ -1,76 +1,97 @@
 /**
- * LAYOUT.CSS — Broadsheet Architecture, Horizontal Ledgers & Unboxed Grid
- * Inspired by Hiroto Sato (Swiss grid), Feather (tabular density), and Vauliys (editorial whitespace)
+ * LAYOUT.CSS — Structural Grid, Masthead & Responsive Layouts
+ * Conforms to Hallmark Gate 34, 49, 50, 51, 52 and Design-Taste Directives
  */
 
-/* Container Constraints */
+/* Container */
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1360px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(16px, 4vw, 48px);
-  padding-right: clamp(16px, 4vw, 48px);
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
 }
 
-.container-wide {
-  width: 100%;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(16px, 4vw, 48px);
-  padding-right: clamp(16px, 4vw, 48px);
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
 }
 
-/* 1. Swiss Metadata Ledger (Hiroto Sato inspired) */
+@media (min-width: 1280px) {
+  .container {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+}
+
+/* 1. Swiss Operational Masthead (Persistent Top Strip) */
 .swiss-masthead {
-  border-bottom: 1px solid var(--rule-subtle);
-  padding: 10px 0;
+  background-color: var(--text-ink);
+  color: var(--text-inverse);
   font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
-  color: var(--text-muted);
-  background-color: var(--canvas-base);
+  font-size: var(--font-size-micro);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 0;
+  position: relative;
+  z-index: 101;
 }
 
 .masthead-ledger {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-4);
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
 }
 
 .masthead-cell {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: var(--space-2);
 }
 
 .status-beacon-live {
+  width: 7px;
+  height: 7px;
+  background-color: #2ECC71;
+  border-radius: 50%;
   display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: var(--radius-pill);
-  background-color: var(--accent-emerald);
-  box-shadow: 0 0 0 2px var(--accent-emerald-subtle);
+  box-shadow: 0 0 8px rgba(46, 204, 113, 0.6);
+  animation: pulse-beacon 2.4s ease-in-out infinite;
 }
 
-/* 2. Primary Navigation Bar */
+@keyframes pulse-beacon {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.9); }
+}
+
+.ledger-accent {
+  color: #9CBBE0;
+}
+
+/* 2. Broadsheet Sticky Navigation */
 .broadsheet-nav {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background-color: rgba(250, 248, 243, 0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--rule-medium);
+  background-color: var(--bg-surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-hairline);
+  z-index: 100;
+  padding: var(--space-3) 0;
+  transition: background-color var(--duration-fast) var(--ease-spring);
 }
 
 .nav-grid {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 64px;
+  justify-content: space-between;
+  gap: var(--space-4);
 }
 
 .nav-brand {
@@ -78,407 +99,209 @@
   align-items: center;
   gap: var(--space-3);
   text-decoration: none;
-  color: var(--text-primary);
+  color: var(--text-ink);
 }
 
 .nav-brand-mark {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-xs);
-  border: 1px solid var(--rule-medium);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-surface);
   object-fit: cover;
 }
 
 .nav-brand-title {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-base);
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text-ink);
+  line-height: 1.1;
+  display: block;
 }
 
 .nav-ledger-links {
-  display: flex;
+  display: none;
   align-items: center;
   gap: var(--space-6);
+}
+
+@media (min-width: 880px) {
+  .nav-ledger-links {
+    display: flex;
+  }
 }
 
 .nav-ledger-item {
   font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
-  font-weight: 500;
-  color: var(--text-secondary);
-  text-decoration: none;
+  font-size: var(--font-size-meta);
+  color: var(--text-muted);
+  text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 6px 0;
-  position: relative;
-  transition: color var(--duration-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--space-1) var(--space-2);
+  transition: color var(--duration-fast) var(--ease-spring);
 }
 
 .nav-ledger-item:hover {
-  color: var(--accent-terracotta);
+  color: var(--text-ink);
 }
 
 .nav-index-num {
-  color: var(--text-muted);
-  margin-right: 4px;
+  color: var(--accent-steel);
+  font-size: var(--font-size-micro);
 }
 
-.nav-ledger-item.active {
-  color: var(--text-primary);
-  font-weight: 600;
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
-.nav-ledger-item.active::after {
-  content: '';
+/* Mobile Nav Toggle */
+.mobile-nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  background: transparent;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-xs);
+}
+
+@media (min-width: 880px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
+}
+
+.mobile-nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-ink);
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+  display: none;
   position: absolute;
-  bottom: 0;
+  top: 100%;
   left: 0;
   right: 0;
-  height: 2px;
-  background-color: var(--accent-terracotta);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-strong);
+  padding: var(--space-4) var(--space-6);
+  flex-direction: column;
+  gap: var(--space-3);
+  box-shadow: 0 16px 32px rgba(12, 35, 64, 0.08);
 }
 
-/* 3. Hero Section (Broadsheet Statement + Operating Ledger) */
+.mobile-drawer.is-open {
+  display: flex;
+}
+
+/* 3. Hero Broadsheet Section */
 .hero-broadsheet {
-  padding-top: clamp(48px, 7vw, 96px);
-  padding-bottom: clamp(56px, 7vw, 88px);
-  border-bottom: 1px solid var(--rule-medium);
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-9);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+@media (min-width: 1024px) {
+  .hero-broadsheet {
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-10);
+  }
 }
 
 .hero-main-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
-  gap: clamp(32px, 5vw, 64px);
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
   align-items: start;
-  margin-bottom: clamp(40px, 5vw, 64px);
 }
 
-.hero-intro {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+@media (min-width: 1024px) {
+  .hero-main-grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--space-8);
+  }
 }
 
-.hero-sidebar {
+.hero-actions-row {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  padding-left: clamp(24px, 4vw, 48px);
-  border-left: 1px solid var(--rule-subtle);
-}
-
-.hero-action-row {
-  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-4);
-  flex-wrap: wrap;
-  margin-top: var(--space-2);
+  gap: var(--space-3);
+  margin-top: var(--space-6);
 }
 
-/* The Operating Ledger (Hiroto / Feather inspired - NO fake terminal card!) */
-.operating-ledger-strip {
-  border-top: 1px solid var(--rule-medium);
-  padding-top: var(--space-6);
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-6);
-}
-
-.ledger-column {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-/* 4. Section Architecture (Ledger Rules, Unboxed) */
+/* 4. General Section Layout */
 .monograph-section {
-  padding-top: clamp(64px, 8vw, 112px);
-  padding-bottom: clamp(64px, 8vw, 112px);
-  border-bottom: 1px solid var(--rule-medium);
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--border-hairline);
 }
 
-.section-ledger-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: var(--space-6);
-  flex-wrap: wrap;
-  padding-bottom: var(--space-5);
-  border-bottom: 1px solid var(--rule-medium);
-  margin-bottom: clamp(32px, 4vw, 56px);
+@media (min-width: 1024px) {
+  .monograph-section {
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-9);
+  }
 }
 
-/* 5. Master Systems Table (Feather / Hiroto inspired) */
-.systems-table-wrapper {
-  overflow-x: auto;
-  margin-bottom: clamp(48px, 6vw, 80px);
-  border: 1px solid var(--rule-medium);
-  background-color: var(--canvas-surface);
-}
-
-.systems-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: var(--font-size-sm);
-  text-align: left;
-}
-
-.systems-table th {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  padding: 14px 18px;
-  background-color: var(--canvas-elevated);
-  border-bottom: 1px solid var(--rule-medium);
-  white-space: nowrap;
-}
-
-.systems-table td {
-  padding: 16px 18px;
-  border-bottom: 1px solid var(--rule-subtle);
-  vertical-align: middle;
-}
-
-.systems-table tr:last-child td {
-  border-bottom: none;
-}
-
-.systems-table tbody tr {
-  transition: background-color var(--duration-fast);
-}
-
-.systems-table tbody tr:hover {
-  background-color: var(--canvas-elevated);
-}
-
-/* 6. Deep Exhibits Flow (Unboxed, Broad-Sheet Panels) */
-.exhibits-flow {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(64px, 8vw, 104px);
-}
-
-.deep-exhibit {
-  border-top: 1px solid var(--rule-strong);
-  padding-top: var(--space-6);
+.section-masthead-row {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
-  gap: clamp(32px, 5vw, 64px);
-  align-items: start;
-}
-
-.exhibit-meta-sidebar {
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: 1fr;
   gap: var(--space-4);
+  margin-bottom: var(--space-7);
 }
 
-.exhibit-interactive-stage {
-  background-color: var(--canvas-surface);
-  border: 1px solid var(--rule-medium);
-  padding: clamp(24px, 3.5vw, 40px);
-  border-radius: var(--radius-sm);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+@media (min-width: 768px) {
+  .section-masthead-row {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: end;
+  }
 }
 
-/* 7. Architectural Principles Section */
-.principles-grid {
+/* 5. Footer / Colophon */
+.colophon-footer {
+  background-color: var(--text-ink);
+  color: var(--text-inverse);
+  padding: var(--space-9) 0 var(--space-7) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.colophon-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(32px, 5vw, 64px);
-}
-
-.principles-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-}
-
-.principle-entry {
-  border-top: 1px solid var(--rule-subtle);
-  padding-top: var(--space-3);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.methodology-ledger {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  background-color: var(--canvas-surface);
-  border: 1px solid var(--rule-medium);
-  padding: clamp(24px, 3vw, 36px);
-}
-
-.methodology-ledger-row {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: var(--space-3);
-  border-bottom: 1px solid var(--rule-subtle);
-  padding-bottom: var(--space-3);
-}
-
-.methodology-ledger-row:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-/* 8. The Builder Section (Vauliys inspired) */
-.builder-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
-  gap: clamp(32px, 5vw, 64px);
-  align-items: start;
-}
-
-.builder-portrait-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.builder-portrait {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: var(--radius-xs);
-  border: 1px solid var(--rule-medium);
-  filter: contrast(102%);
-}
-
-.timeline-ledger {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  margin-top: var(--space-5);
-  border-left: 1px solid var(--rule-medium);
-  padding-left: var(--space-4);
-}
-
-.timeline-step {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  position: relative;
-}
-
-.timeline-step::before {
-  content: '';
-  position: absolute;
-  left: calc(-1 * var(--space-4) - 4px);
-  top: 6px;
-  width: 7px;
-  height: 7px;
-  background-color: var(--accent-terracotta);
-  border-radius: var(--radius-pill);
-}
-
-/* 9. Contact / Dispatch Section */
-.dispatch-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(32px, 5vw, 64px);
-}
-
-.dispatch-channels {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-}
-
-.dispatch-channel-row {
-  border-top: 1px solid var(--rule-subtle);
-  padding-top: var(--space-3);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-/* 10. Broadsheet Footer */
-.broadsheet-footer {
-  padding: clamp(48px, 6vw, 72px) 0 clamp(32px, 4vw, 48px);
-  border-top: 1px solid var(--rule-medium);
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-}
-
-.footer-ledger-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: var(--space-6);
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
   margin-bottom: var(--space-8);
 }
 
-.footer-colophon {
+@media (min-width: 768px) {
+  .colophon-grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 3fr) minmax(0, 4fr);
+  }
+}
+
+.colophon-bottom-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: var(--space-4);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--rule-subtle);
-  flex-wrap: wrap;
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
-  color: var(--text-muted);
-}
-
-/* Responsive Art Direction */
-@media (max-width: 1024px) {
-  .hero-main-grid {
-    grid-template-columns: 1fr;
-  }
-  .hero-sidebar {
-    padding-left: 0;
-    border-left: none;
-    border-top: 1px solid var(--rule-subtle);
-    padding-top: var(--space-4);
-  }
-  .deep-exhibit {
-    grid-template-columns: 1fr;
-  }
-  .principles-grid {
-    grid-template-columns: 1fr;
-  }
-  .builder-grid {
-    grid-template-columns: 1fr;
-  }
-  .dispatch-grid {
-    grid-template-columns: 1fr;
-  }
-  .footer-ledger-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .swiss-masthead {
-    display: none;
-  }
-  .nav-ledger-links {
-    display: none;
-  }
-  .operating-ledger-strip {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-  .footer-ledger-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-action-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .hero-action-row .btn {
-    width: 100%;
-    justify-content: center;
-  }
+  font-size: var(--font-size-micro);
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.05em;
 }

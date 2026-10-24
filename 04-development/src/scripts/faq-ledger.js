@@ -13,12 +13,12 @@ export function initFaqLedger() {
     if (!trigger || !panel) return;
 
     trigger.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
+      const isOpen = item.classList.contains('is-open') || item.classList.contains('open');
 
       // Close other items
       faqItems.forEach((other) => {
         if (other !== item) {
-          other.classList.remove('open');
+          other.classList.remove('is-open', 'open');
           const otherTrigger = other.querySelector('.faq-ledger-trigger');
           if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
         }
@@ -26,10 +26,10 @@ export function initFaqLedger() {
 
       // Toggle current
       if (isOpen) {
-        item.classList.remove('open');
+        item.classList.remove('is-open', 'open');
         trigger.setAttribute('aria-expanded', 'false');
       } else {
-        item.classList.add('open');
+        item.classList.add('is-open', 'open');
         trigger.setAttribute('aria-expanded', 'true');
       }
     });

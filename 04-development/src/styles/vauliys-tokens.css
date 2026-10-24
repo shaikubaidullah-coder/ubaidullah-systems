@@ -1,0 +1,54 @@
+/**
+ * VAULIYS-TOKENS.CSS
+ * Design Tokens extracted directly from Vauliys reference
+ */
+
+:root {
+  /* Surfaces & Paper Canvas */
+  --v-bg: #FAF7EE;
+  --v-bg-surface: #FFFFFF;
+  --v-bg-about: #F3ECE0;
+  --v-bg-letter: #EFE8DA;
+  --v-banner-bg: #292D24;
+  --v-banner-text: #F3EFE3;
+
+  /* Inks & Typography */
+  --v-text-ink: #242820;
+  --v-text-muted: #5E6357;
+  --v-text-faint: #8B9084;
+  
+  /* Vauliys Signature Sage Green */
+  --v-pill-sage: #D2DCB4;
+  --v-pill-sage-hover: #C4D0A0;
+  --v-pill-text: #263319;
+  
+  /* Folder Tab Accents */
+  --v-folder-pipelines: #E2C779;
+  --v-folder-voice: #B6CB92;
+  --v-folder-tools: #C48E75;
+
+  /* Borders & Rules */
+  --v-border: rgba(36, 40, 32, 0.14);
+  --v-border-input: #4A5043;
+  --v-grid-line: #E8E2D2;
+
+  /* Fonts */
+  --v-font-display: 'Fraunces', 'Henriette', Georgia, 'Times New Roman', serif;
+  --v-font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --v-font-mono: 'JetBrains Mono', monospace;
+
+  /* Radii */
+  --v-radius-pill: 9999px;
+  --v-radius-card: 16px;
+  --v-radius-input: 12px;
+
+  /* Spacing */
+  --v-space-xs: 4px;
+  --v-space-sm: 8px;
+  --v-space-md: 16px;
+  --v-space-lg: 24px;
+  --v-space-xl: 32px;
+  --v-space-2xl: 48px;
+  --v-space-3xl: 64px;
+  --v-space-4xl: 96px;
+}
