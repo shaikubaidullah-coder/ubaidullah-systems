@@ -1,6 +1,0 @@
-{
-  "framework": "vite",
-  "buildCommand": "cd 04-development && npm run build",
-  "outputDirectory": "04-development/dist",
-  "cleanUrls": true
-}
